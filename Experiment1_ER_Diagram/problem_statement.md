@@ -45,28 +45,55 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - Student Name: DHARSHINIYAA KS (212223100004)
 
 ## Scenario Chosen:
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+
+![ER ](https://github.com/user-attachments/assets/1ed29d51-9886-472a-9503-d6355ddacc90)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
+Student: student_id (PK), name, email, phone, date_of_birth
+
+Course: course_id (PK), course_name, credits, department
+
+Professor: professor_id (PK), name, email, office_number
+
+Department: dept_id (PK), dept_name, building
+
+Enrollment: enrollment_id (PK), grade
+
+Prerequisite: prereq_id (PK)
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+Student - Enrollment: (1:N, total participation of Enrollment)
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Course - Enrollment: (1:N, total participation of Enrollment)
+
+Professor - Course: (1:N, partial participation; a course must have a professor)
+
+Department - Professor: (1:N, partial participation)
+
+Department - Course: (1:N, total participation of Course)
+
+Course - Prerequisite: (1:N, optional participation; a course may have zero or more prerequisites)
+
+## Extension (Prerequisite):
+Prerequisites: Modeled as a recursive relationship on the Course entity.
+A course can have zero, one, or multiple prerequisite courses.
+Example: "Data Structures" may require "Introduction to Programming" as a prerequisite.
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+Entities: Focused on academic structure and key stakeholders — students, professors, courses, and departments.
 
-## RESULT
+Relationships: Enrollment captures the many-to-many between Students and Courses. Prerequisites are handled through self-referencing Courses.
+
+Constraints: Students must enroll in courses. Each course must belong to a department.
+
+Assumptions: Each course is taught by one professor, and each professor can teach multiple courses. Departments manage multiple courses and professors.
+
+## RESULT:
+The ER diagram was drawn and explained successfully.
